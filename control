@@ -1,0 +1,9 @@
+Package: com.cryptic.jelbrekicu
+Name: JelbrekICU
+Depends: mobilesubstrate
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: JelBrekICU tweak for uploading iOS screenshots to jelbrek.icu
+Maintainer: Cryptic
+Author: Cryptic
+Section: Tweaks

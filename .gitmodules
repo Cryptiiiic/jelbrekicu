@@ -1,0 +1,3 @@
+[submodule "libjelbrekicu"]
+	path = libjelbrekicu
+	url = https://github.com/Cryptiiiic/libjelbrekicu
