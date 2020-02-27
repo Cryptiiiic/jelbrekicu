@@ -2,6 +2,7 @@
 #import "libjelbrekicu/jelbrekicu.h"
 
 UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
+JelBrekICU *jbicu = nil;
 
 %hook SSScreenCapturer
 
@@ -9,7 +10,7 @@ UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
 {
     %orig;
     NSString *url = [[JelBrekICU new] uploadUIImage:image jelbrekKey:@"b326ae99-b778-4b84-91f5-595402e05a35" siteURL:[NSURL URLWithString:@"http://jelbrek.icu/upload"]];
-    if([[JelBrekICU new] logging])
+    if([jbicu logging])
         NSLog(@"JelbrekICU: url: %@", url);
     if(url)
         pasteboard.string = url;
@@ -19,6 +20,8 @@ UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
 
 %ctor
 {
-    if([[JelBrekICU new] logging])
+    jbicu = [JelBrekICU new];
+    [jbicu setLogging:YES];
+    if([jbicu logging])
         NSLog(@"JelbrekICU: Init");
 }
