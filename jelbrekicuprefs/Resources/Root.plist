@@ -29,8 +29,6 @@
 			<string>PSButtonCell</string>
 			<key>label</key>
 			<string>Login</string>
-			<key>cellClass</key>
-			<string>HBTintedTableCell</string>
 			<key>action</key>
 			<string>login</string>
 		</dict>

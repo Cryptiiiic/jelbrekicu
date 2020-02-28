@@ -6,7 +6,8 @@ JelbrekICUPrefs_FILES = $(wildcard *.m)
 JelbrekICUPrefs_INSTALL_PATH = /Library/PreferenceBundles
 JelbrekICUPrefs_FRAMEWORKS = UIKit
 JelbrekICUPrefs_PRIVATE_FRAMEWORKS = Preferences
-JelbrekICUPrefs_EXTRA_FRAMEWORKS = CepheiPrefs
+JelbrekICUPrefs_LIBRARIES = jelbrekicu
+JelbrekICUPrefs_EXTRA_FRAMEWORKS = CepheiPrefs Cephei
 JelbrekICUPrefs_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/bundle.mk

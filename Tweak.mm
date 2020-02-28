@@ -3,7 +3,6 @@
 #import "libjelbrekicu/jelbrekicu.h"
 
 UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
-JelBrekICU *jbicu = nil;
 HBPreferences *preferences = nil;
 NSString *key = nil;
 
@@ -12,8 +11,9 @@ NSString *key = nil;
 -(void)_saveImageToPhotoLibrary:(UIImage *)image environmentDescription:(id)env
 {
     %orig;
+    JelBrekICU *jbicu = [JelBrekICU new];
     [preferences registerObject:&key default:0 forKey:@"token"];
-    [[JelBrekICU new] uploadUIImage:image jelbrekKey:key siteURL:[NSURL URLWithString:@"http://jelbrek.icu/upload"] completionHandler:^(NSString *url)
+    [jbicu uploadUIImage:image jelbrekKey:key siteURL:[NSURL URLWithString:@"http://jelbrek.icu/upload"] completionHandler:^(NSString *url)
     {
         if([jbicu logging])
             NSLog(@"JelbrekICU: url: %@", url);
@@ -26,8 +26,7 @@ NSString *key = nil;
 
 %ctor
 {
-    jbicu = [JelBrekICU new];
-    //[jbicu setLogging:YES];
+    JelBrekICU *jbicu = [JelBrekICU new];
     preferences = [HBPreferences preferencesForIdentifier:@"com.cryptic.jbicuprefs"];
     if([jbicu logging])
         NSLog(@"JelbrekICU: Init");

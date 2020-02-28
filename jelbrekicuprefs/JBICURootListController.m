@@ -1,7 +1,12 @@
 #import <CepheiPrefs/HBAppearanceSettings.h>
-#include "JBICURootListController.h"
+#import <Cephei/HBPreferences.h>
+#import "JBICURootListController.h"
+#import "../libjelbrekicu/jelbrekicu.h"
 
 @implementation JBICURootListController
+
+HBPreferences *preferences = nil;
+NSString *key = nil;
 
 + (NSString *)hb_specifierPlist
 {
@@ -14,6 +19,7 @@
 
 	if (self)
 	{
+		preferences = [HBPreferences preferencesForIdentifier:@"com.cryptic.jbicuprefs"];
 		HBAppearanceSettings *appearanceSettings = [[HBAppearanceSettings alloc] init];
 		appearanceSettings.tintColor = [UIColor colorWithRed:118.f / 255.f green:75.f / 255.f blue:162.f / 255.f alpha:1];
 
@@ -30,6 +36,25 @@
 	}
 
 	return self;
+}
+
+- (void)login
+{
+	JelBrekICU *jbicu = [JelBrekICU new];
+	[preferences registerObject:&key default:0 forKey:@"token"];
+    [jbicu login:key siteURL:[NSURL URLWithString:@"http://jelbrek.icu/login"] completionHandler:^(BOOL success)
+    {
+        if([jbicu logging])
+            NSLog(@"JelbrekICUPrefs: login: success: %@", success ? @"YES" : @"NO");
+		dispatch_queue_t current_queue = dispatch_get_main_queue();
+		dispatch_async(current_queue, 
+		^{
+			UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Login" message:[NSString stringWithFormat:@"Success: %@", success ? @"YES" : @"NO"] preferredStyle:UIAlertControllerStyleActionSheet];
+			UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
+			[loginAlert addAction:ok];
+			[self presentViewController:loginAlert animated:YES completion:nil];
+		});
+    }];
 }
 
 @end
