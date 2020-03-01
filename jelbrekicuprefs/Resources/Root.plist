@@ -19,7 +19,11 @@
 			<string>com.cryptic.jbicuprefs</string>
 			<key>key</key>
 			<string>token</string>
+			<key>noAutoCorrect</key>
+			<true/>
 			<key>label</key>
+			<string>Token</string>
+			<key>placeholder</key>
 			<string>Token</string>
 		</dict>
 		<dict>
