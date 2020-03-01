@@ -15,8 +15,6 @@
 		<dict>
 			<key>cell</key>
 			<string>PSSecureEditTextCell</string>
-			<key>default</key>
-			<true/>
 			<key>defaults</key>
 			<string>com.cryptic.jbicuprefs</string>
 			<key>key</key>
