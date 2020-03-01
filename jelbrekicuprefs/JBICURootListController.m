@@ -42,7 +42,7 @@ NSString *key = nil;
 {
 	JelBrekICU *jbicu = [JelBrekICU new];
 	[preferences registerObject:&key default:0 forKey:@"token"];
-    [jbicu login:key siteURL:[NSURL URLWithString:@"http://jelbrek.icu/login"] completionHandler:^(BOOL success)
+    [jbicu login:key siteURL:[NSURL URLWithString:@"https://jelbrek.icu/login"] completionHandler:^(BOOL success)
     {
         if([jbicu logging])
             NSLog(@"JelbrekICUPrefs: login: success: %@", success ? @"YES" : @"NO");

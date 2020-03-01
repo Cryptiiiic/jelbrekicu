@@ -13,7 +13,7 @@ NSString *key = nil;
     %orig;
     JelBrekICU *jbicu = [JelBrekICU new];
     [preferences registerObject:&key default:0 forKey:@"token"];
-    [jbicu uploadUIImage:image jelbrekKey:key siteURL:[NSURL URLWithString:@"http://jelbrek.icu/upload"] completionHandler:^(NSString *url)
+    [jbicu uploadUIImage:image jelbrekKey:key siteURL:[NSURL URLWithString:@"https://jelbrek.icu/upload"] completionHandler:^(NSString *url)
     {
         if([jbicu logging])
             NSLog(@"JelbrekICU: url: %@", url);
