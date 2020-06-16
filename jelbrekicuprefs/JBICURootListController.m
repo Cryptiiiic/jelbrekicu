@@ -80,7 +80,7 @@ NSString *key = nil;
 
 - (void)openReddit {
 	[[[UIApplication sharedApplication]
-// 	openURL:[NSURL URLWithString:@"https://reddit.com/u/MrCryptiic/"]]
+ 	openURL:[NSURL URLWithString:@"https://reddit.com/u/MrCryptiic/"]]
 	options:@{}
 	completionHandler:nil];
 }
