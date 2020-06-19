@@ -49,7 +49,7 @@ NSString *key = nil;
 		dispatch_queue_t current_queue = dispatch_get_main_queue();
 		dispatch_async(current_queue, 
 		^{
-			UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Login" message:(success ? @"Success!" : @"Failed to log in.") preferredStyle:UIAlertControllerStyleActionSheet];
+			UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"JelbrekICU" message:(success ? @"Login success!" : @"Failed to log in.") preferredStyle:UIAlertControllerStyleActionSheet];
 			UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
 			[loginAlert addAction:ok];
 			[self presentViewController:loginAlert animated:YES completion:nil];
@@ -57,4 +57,31 @@ NSString *key = nil;
     }];
 }
 
+- (void)openGitHub {
+	[[[UIApplication sharedApplication]
+	openURL:[NSURL URLWithString:@"https://github.com/Cryptiiiic/jelbrekicu"]]
+	options:@{}
+	completionHandler:nil];
+}
+
+- (void)openTwitter {
+	[[[UIApplication sharedApplication]
+	openURL:[NSURL URLWithString:@"https://twitter.com/Cryptiiiic"]]
+	options:@{}
+	completionHandler:nil];
+}
+
+- (void)openWebsite {
+	[[[UIApplication sharedApplication]
+	openURL:[NSURL URLWithString:@"https://cryptiiiic.com/"]]
+	options:@{}
+	completionHandler:nil];
+}
+
+- (void)openReddit {
+	[[[UIApplication sharedApplication]
+ 	openURL:[NSURL URLWithString:@"https://reddit.com/u/MrCryptiic/"]]
+	options:@{}
+	completionHandler:nil];
+}
 @end
