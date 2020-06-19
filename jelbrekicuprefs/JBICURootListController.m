@@ -57,31 +57,28 @@ NSString *key = nil;
     }];
 }
 
-- (void)openGitHub {
-	[[[UIApplication sharedApplication]
-	openURL:[NSURL URLWithString:@"https://github.com/Cryptiiiic/jelbrekicu"]]
-	options:@{}
-	completionHandler:nil];
+- (void)openGitHub
+{
+	NSDictionary *options = @{UIApplicationOpenURLOptionUniversalLinksOnly : @YES};
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/Cryptiiiic/jelbrekicu"] options:options completionHandler:nil];
 }
 
-- (void)openTwitter {
-	[[[UIApplication sharedApplication]
-	openURL:[NSURL URLWithString:@"https://twitter.com/Cryptiiiic"]]
-	options:@{}
-	completionHandler:nil];
+- (void)openTwitter
+{
+	NSDictionary *options = @{UIApplicationOpenURLOptionUniversalLinksOnly : @YES};
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://twitter.com/Cryptiiiic"] options:options completionHandler:nil];
 }
 
-- (void)openWebsite {
-	[[[UIApplication sharedApplication]
-	openURL:[NSURL URLWithString:@"https://cryptiiiic.com/"]]
-	options:@{}
-	completionHandler:nil];
+- (void)openWebsite
+{
+	NSDictionary *options = @{UIApplicationOpenURLOptionUniversalLinksOnly : @YES};
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://cryptiiiic.com"] options:options completionHandler:nil];
 }
 
-- (void)openReddit {
-	[[[UIApplication sharedApplication]
- 	openURL:[NSURL URLWithString:@"https://reddit.com/u/MrCryptiic/"]]
-	options:@{}
-	completionHandler:nil];
+- (void)openReddit
+{
+	NSDictionary *options = @{UIApplicationOpenURLOptionUniversalLinksOnly : @YES};
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://reddit.com/u/MrCryptiic"] options:options completionHandler:nil];
 }
+
 @end
